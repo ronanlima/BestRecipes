@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recycler_margin_left">8dp</dimen>
+    <dimen name="recycler_margin_right">@dimen/recycler_margin_left</dimen>
+    <dimen name="recycler_margin_top">8dp</dimen>
+    <dimen name="recycler_margin_bottom">@dimen/recycler_margin_top</dimen>
+    <dimen name="recycler_margin_start">@dimen/recycler_margin_left</dimen>
+    <dimen name="recycler_margin_end">@dimen/recycler_margin_right</dimen>
+
+    <dimen name="text_recipe_item_margin_left">8dp</dimen>
+    <dimen name="text_recipe_item_margin_start">@dimen/text_recipe_item_margin_left</dimen>
+    <dimen name="text_recipe_item_margin_right">8dp</dimen>
+    <dimen name="text_recipe_item_margin_end">@dimen/text_recipe_item_margin_right</dimen>
+    <dimen name="text_recipe_item_margin_bottom">8dp</dimen>
+
+    <dimen name="text_size">18sp</dimen>
+</resources>
