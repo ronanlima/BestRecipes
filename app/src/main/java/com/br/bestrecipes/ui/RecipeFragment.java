@@ -9,10 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,6 +66,12 @@ public class RecipeFragment extends Fragment {
             buildLayoutError();
         }
         initRecyclerView();
+        setRetainInstance(true);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     private void buildLayoutError() {
@@ -79,13 +82,8 @@ public class RecipeFragment extends Fragment {
     }
 
     private void initRecyclerView() {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setHasFixedSize(true);
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), layoutManager.getLayoutDirection());
-//        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.d));
-//        mRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
     private void configLayout(@Nullable List<Recipe> recipes) {
