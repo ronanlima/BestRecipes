@@ -4,4 +4,7 @@
     <string name="msg_falha_recuperar_receitas">Falha ao recuperar as receitas</string>
     <string name="msg_no_network">Sem conexão com a internet</string>
     <string name="msg_conecte_se">Conecte-se à internet</string>
+
+    <string name="label_ingredients">Ingredients</string>
+    <string name="label_steps">Steps</string>
 </resources>

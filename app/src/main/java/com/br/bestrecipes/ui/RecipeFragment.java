@@ -31,6 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RecipeFragment extends Fragment {
+    public static final String TAG = RecipeFragment.class.getSimpleName().toUpperCase();
 
     @BindView(R.id.recipe_list)
     RecyclerView mRecyclerView;

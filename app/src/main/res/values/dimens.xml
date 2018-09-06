@@ -14,4 +14,6 @@
     <dimen name="text_recipe_item_margin_bottom">8dp</dimen>
 
     <dimen name="text_size">18sp</dimen>
+    <dimen name="text_label_recipe_detail_margin_top">8dp</dimen>
+    <dimen name="text_label_recipe_detail_margin_bottom">8dp</dimen>
 </resources>
