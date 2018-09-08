@@ -61,6 +61,8 @@ public class RecipeDetailFragment extends Fragment implements ExoPlayer.EventLis
     TextView tvStepLabel;
     @BindView(R.id.tv_step_value)
     TextView tvStepDescription;
+    @BindView(R.id.tv_label_ingredients)
+    TextView tvLabelIngredients;
     @BindView(R.id.tv_ingredients_value)
     TextView tvIngredients;
     @BindView(R.id.tv_next)
@@ -209,6 +211,8 @@ public class RecipeDetailFragment extends Fragment implements ExoPlayer.EventLis
      */
     private void configureIngredients() {
         StringBuilder builder = new StringBuilder();
+        String labelIngredients = tvLabelIngredients.getText().toString();
+        tvLabelIngredients.setText(String.format("%s - %s", labelIngredients, recipe.getName()));
         for (Ingredient i : ingredients) {
             builder.append(i.getQuantity());
             builder.append(" ").append(i.getIngredient()).append("\n");

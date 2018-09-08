@@ -25,9 +25,11 @@ final androidVersion = '27.0.2'
 def butterKnifeVersion = '8.8.1'
 def retrofitVersion = '2.4.0'
 def androidLifecycle = '1.1.0'
+def espressoRunnerRulesVersion = '0.5'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:support-annotations:$androidVersion"
     implementation "com.android.support:appcompat-v7:$androidVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation "com.android.support:design:$androidVersion"
@@ -42,6 +44,9 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer:r2.2.0'
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation "com.android.support.test:runner:$espressoRunnerRulesVersion"
+    androidTestImplementation "com.android.support.test:rules:$espressoRunnerRulesVersion"
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:2.2.2'
+    androidTestImplementation "com.android.support:support-annotations:$androidVersion"
 }
