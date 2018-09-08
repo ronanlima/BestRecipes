@@ -31,7 +31,7 @@ public class RecipeDetailFragment extends Fragment {
     private List<Step> steps;
     private List<Ingredient> ingredients;
     private Recipe recipe;
-    private int actualStep;
+    private int actualStep = 1;
 
     @BindView(R.id.tv_label_steps)
     TextView tvStepLabel;
@@ -71,7 +71,7 @@ public class RecipeDetailFragment extends Fragment {
         } else {
             position = actualStep;
         }
-        tvStepLabel.setText(String.format("Step %s - %s", (actualStep + 1), steps.get(position).getShortDescription()));
+        tvStepLabel.setText(String.format("Step %s - %s", actualStep, steps.get(position).getShortDescription()));
         if (actualStep != 0) {
             tvStepDescription.setText(steps.get(position).getDescription());
         }
@@ -163,6 +163,6 @@ public class RecipeDetailFragment extends Fragment {
      * @return
      */
     private boolean hasPrevious() {
-        return actualStep >= 1;
+        return actualStep >= 2;
     }
 }
