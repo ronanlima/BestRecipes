@@ -49,6 +49,10 @@ public class ListRecipesActivity extends AppCompatActivity implements RecipeAdap
         RecipeDetailFragment fragment = new RecipeDetailFragment();
         fragment.setArguments(bundle);
 
+        if (fm == null) {
+            fm = getSupportFragmentManager();
+        }
+
         ft = fm.beginTransaction();
         ft.replace(R.id.container_fragment, fragment).addToBackStack(RecipeDetailFragment.TAG);
         ft.commit();

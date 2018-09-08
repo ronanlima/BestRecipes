@@ -140,17 +140,26 @@ public class RecipeDetailFragment extends Fragment implements ExoPlayer.EventLis
 
         if (steps.get(actualStep).getVideoURL() != null && !steps.get(actualStep).getVideoURL().isEmpty()) {
             if (isOnline()) {
+                player.setVisibility(View.VISIBLE);
                 setMediaOnExoPlayer(steps.get(actualStep).getVideoURL());
                 tvError.setVisibility(View.INVISIBLE);
             } else {
+                player.setVisibility(View.INVISIBLE);
                 tvError.setVisibility(View.VISIBLE);
-                // TODO fazer alguma coisa com o player neste momento
+                stopExoPlayer();
             }
         } else {
-            if (mExoPlayer != null) {
-                mExoPlayer.stop();
-            }
+            stopExoPlayer();
             player.setDefaultArtwork(BitmapFactory.decodeResource(getResources(), R.drawable.question_mark));
+        }
+    }
+
+    /**
+     * Stop exoplayer when necessary
+     */
+    private void stopExoPlayer() {
+        if (mExoPlayer != null) {
+            mExoPlayer.stop();
         }
     }
 
@@ -269,9 +278,9 @@ public class RecipeDetailFragment extends Fragment implements ExoPlayer.EventLis
 
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-        if((playbackState == ExoPlayer.STATE_READY) && playWhenReady){
+        if ((playbackState == ExoPlayer.STATE_READY) && playWhenReady) {
             Log.d(TAG, "onPlayerStateChanged: PLAYING");
-        } else if((playbackState == ExoPlayer.STATE_READY)){
+        } else if ((playbackState == ExoPlayer.STATE_READY)) {
             Log.d(TAG, "onPlayerStateChanged: PAUSED");
         }
     }
