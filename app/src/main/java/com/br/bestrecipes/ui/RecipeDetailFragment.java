@@ -1,9 +1,13 @@
 package com.br.bestrecipes.ui;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.widget.TextViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,16 +75,33 @@ public class RecipeDetailFragment extends Fragment {
         if (actualStep != 0) {
             tvStepDescription.setText(steps.get(position).getDescription());
         }
+
+        int colorPrimary = R.color.colorPrimary;
+        int color_disabled = R.color.color_disabled;
+
         if (!hasNext()) {
-            tvNext.setBackgroundColor(getResources().getColor(R.color.color_disabled));
+            setIcTextView(tvNext, color_disabled, R.drawable.ic_next);
         } else {
-            tvNext.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            setIcTextView(tvNext, colorPrimary, R.drawable.ic_next);
         }
         if (hasPrevious()) {
-            tvPrev.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            setIcTextView(tvPrev, colorPrimary, R.drawable.ic_prev);
         } else {
-            tvPrev.setBackgroundColor(getResources().getColor(R.color.color_disabled));
+            setIcTextView(tvPrev, color_disabled, R.drawable.ic_prev);
         }
+    }
+
+    /**
+     * Use this method to change ic color for next and previous steps.
+     *
+     * @param tv
+     * @param color
+     * @param ic
+     */
+    private void setIcTextView(TextView tv, int color, int ic) {
+        Drawable drawable = ContextCompat.getDrawable(getActivity(), ic);
+        DrawableCompat.setTint(drawable, getResources().getColor(color));
+        TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(tv, null, drawable, null, null);
     }
 
     @OnClick(R.id.tv_next)

@@ -21,7 +21,7 @@ android {
     }
 }
 
-final androidVersion = '27.1.1'
+final androidVersion = '27.0.2'
 def butterKnifeVersion = '8.8.1'
 def retrofitVersion = '2.4.0'
 def androidLifecycle = '1.1.0'
