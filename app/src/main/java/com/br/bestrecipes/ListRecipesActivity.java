@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.br.bestrecipes.bean.Recipe;
+import com.br.bestrecipes.service.RecipeWidgetService;
 import com.br.bestrecipes.ui.RecipeAdapter;
 import com.br.bestrecipes.ui.RecipeDetailFragment;
 import com.br.bestrecipes.ui.RecipeFragment;
@@ -56,5 +57,9 @@ public class ListRecipesActivity extends AppCompatActivity implements RecipeAdap
         ft = fm.beginTransaction();
         ft.replace(R.id.container_fragment, fragment).addToBackStack(RecipeDetailFragment.TAG);
         ft.commit();
+
+        Bundle b = new Bundle();
+        b.putParcelableArrayList(BUNDLE_INGREDIENTS, (ArrayList<? extends Parcelable>) recipe.getIngredients());
+        RecipeWidgetService.startActionUpdateTextWidget(this, b);
     }
 }

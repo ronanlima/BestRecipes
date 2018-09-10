@@ -17,6 +17,7 @@ android {
         }
         buildTypes.each {
             it.buildConfigField 'String', 'API_URL', '"https://d17h27t6h515a5.cloudfront.net/"'
+            it.buildConfigField 'String', 'PREF_INGREDIENT', '"pref_ingredient"'
         }
     }
 }
